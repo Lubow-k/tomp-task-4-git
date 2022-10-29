@@ -1,20 +1,22 @@
-## Отмена изменений в файле
+## **Отмена изменений в файле**
 Что делать, если вы поняли, что не хотите сохранять свои изменения файла `CONTRIBUTING.md`?
 Как можно просто отменить изменения в нём — вернуть к тому состоянию, которое было в последнем коммите (или к начальному после клонирования, или еще как-то полученному)? Нам повезло, что `git status` подсказывает и это тоже.
 
 В выводе команды из последнего примера список изменений выглядит примерно так:
+
 	Changes not staged for commit:
-	(use "git add <file>..." to update what will be committed)
-	(use "git checkout -- <file>..." to discard changes in working directory)
-	modified:   CONTRIBUTING.md
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+		modified:   CONTRIBUTING.md
 
 Здесь явно сказано как отменить существующие изменения. Давайте так и сделаем:
+	
 	$ git checkout -- CONTRIBUTING.md
 	$ git status
 	On branch master
 	Changes to be committed:
-	(use "git reset HEAD <file>..." to unstage)
-	renamed:    README.md -> README
+	  (use "git reset HEAD <file>..." to unstage)
+		renamed:    README.md -> README
 
 Как видите, откат изменений выполнен.
 Важно понимать, что `git checkout -- <file>` — опасная команда. Все локальные изменения в файле пропадут — Git просто заменит его версией из последнего коммита. Ни в коем случае не используйте эту команду, если вы не уверены, что изменения в файле вам не нужны.
